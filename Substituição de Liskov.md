@@ -33,6 +33,8 @@ Os sinais comuns de violação do Liskov Substitution são:
 
 Para não violar o Liskov Substitution Principle (LSP), além de projetar boas abstrações, é fundamental integrar outras práticas do SOLID, que acabam funcionando em conjunto. Especialmente o OCP (princípio Aberto/Fechado) e o ISO (princípio da segregação da interface), os quais são comumente apoiados pela Injeção Dependência. Quando se adere ao LSP é possível explorar o conceito de polimorfismo com total confiança, e assim, se torna possível interagir com as classes derivadas por meio de suas superclasses, sem ter o receio de se deparar com comportamentos imprevisíveis ou falhas colaterais. 
 
+Para aplicar o Princípio de Substituição de Liskov de uma forma mais eficiente, uma boa solução é usar o conceito de Design por Contrato. Em vez de apenas herdar código para reaproveitá-lo, o desenvolvedor precisa garantir que a subclasse cumpra todas as promessas feitas pela superclasse. São três passos principais nesse processo: primeiro, fazer um refinamento das abstrações, ou seja, dividir hierarquias muito genéricas em interfaces ou classes menores e mais específicas. Por exemplo, separar veículos motorizados de veículos manuais. Depois, é importante manter as pré-condições, assegurando que a subclasse não exija mais do que a classe pai. E, por fim, preservar as pós-condições, garantindo que o retorno dos métodos e seus efeitos colaterais continuem compatíveis. Quando a substituição parecer forçada ou difícil de encaixar, vale a pena optar pela composição ao invés da herança.
+
 ---
 
 Analogia com o Mundo Real utilizando Veículos
@@ -111,6 +113,7 @@ public class Main {
 }
 
 Exemplo de codigo utilizando python
+
 from abc import ABC, abstractmethod
 
 class Veiculo(ABC):
@@ -174,6 +177,7 @@ class Veiculo(ABC):
 	 bike.mover()
 
 ---
+Referências
 
 https://medium.com/@tbaragao/solid-l-s-p-liskov-substitution-principle-3a31c3a7b49e
 
@@ -182,5 +186,6 @@ https://vinicius-sanchez.medium.com/solid-liskov-substitution-principle-lsp-d702
 https://stackify.com/solid-design-liskov-substitution-principle/
 
 https://blog.formacao.dev/l-de-solid-substituicoes-sem-surpresas-com-o-principio-de-liskov/
+
 
 
